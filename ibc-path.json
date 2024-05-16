@@ -1,0 +1,922 @@
+{
+  "uatom": {
+    "osmosis_cosmoshub": {
+      "denomIn": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
+      "denomOut": "uatom",
+      "sourceChain": "osmosis",
+      "destChain": "cosmoshub",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    },
+    "cosmoshub_osmosis": {
+      "denomIn": "uatom",
+      "denomOut": "ibc/27394FB092D2ECCD56123C74F36E4C1F926001CEADA9CA97EA622B25F41E5EB2",
+      "sourceChain": "cosmoshub",
+      "destChain": "osmosis",
+      "channelId": "channel-141",
+      "portId": "transfer"
+    }
+  },
+  "peggy0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2": {
+    "osmosis_injective": {
+      "denomIn": "ibc/072E5B3D6F278B3E6A9C51D7EAD1A737148609512C5EBE8CBCB5663264A0DDB7",
+      "denomOut": "peggy0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2",
+      "sourceChain": "osmosis",
+      "destChain": "injective",
+      "channelId": "channel-122",
+      "portId": "transfer"
+    },
+    "injective_osmosis": {
+      "denomIn": "peggy0xd73175f9eb15eee81745d367ae59309Ca2ceb5e2",
+      "denomOut": "ibc/072E5B3D6F278B3E6A9C51D7EAD1A737148609512C5EBE8CBCB5663264A0DDB7",
+      "sourceChain": "injective",
+      "destChain": "osmosis",
+      "channelId": "channel-8",
+      "portId": "transfer"
+    }
+  },
+  "ugraviton": {
+    "osmosis_undefined": {
+      "denomIn": "ibc/0868AC873D7C528E94D98A969D3B91A4D6E71C140087B68E3B17538AF18F2F36",
+      "denomOut": "ugraviton",
+      "sourceChain": "osmosis",
+      "channelId": "channel-132",
+      "portId": "transfer"
+    },
+    "undefined_osmosis": {
+      "denomIn": "ugraviton",
+      "denomOut": "ibc/0868AC873D7C528E94D98A969D3B91A4D6E71C140087B68E3B17538AF18F2F36",
+      "destChain": "osmosis",
+      "channelId": "channel-3",
+      "portId": "transfer"
+    }
+  },
+  "gravity0x2F109021aFe75B949429fe30523Ee7C0D5B27207": {
+    "osmosis_gravitybridge": {
+      "denomIn": "ibc/0362302C7F45A97E304A087F05553DCECF0EAED24A17BC3D5B1BCC5E5B787E4C",
+      "denomOut": "gravity0x2F109021aFe75B949429fe30523Ee7C0D5B27207",
+      "sourceChain": "osmosis",
+      "destChain": "gravitybridge",
+      "channelId": "channel-144",
+      "portId": "transfer"
+    },
+    "gravitybridge_osmosis": {
+      "denomIn": "gravity0x2F109021aFe75B949429fe30523Ee7C0D5B27207",
+      "denomOut": "ibc/0362302C7F45A97E304A087F05553DCECF0EAED24A17BC3D5B1BCC5E5B787E4C",
+      "sourceChain": "gravitybridge",
+      "destChain": "osmosis",
+      "channelId": "channel-10",
+      "portId": "transfer"
+    }
+  },
+  "gravity0xa47c8bf37f92aBed4A126BDA807A7b7498661acD": {
+    "osmosis_gravitybridge": {
+      "denomIn": "ibc/001C80B8D0DA1CAE8E7420A08AC3F546D3E76B8DA6A767481C9DF5F9DCF8C43F",
+      "denomOut": "gravity0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
+      "sourceChain": "osmosis",
+      "destChain": "gravitybridge",
+      "channelId": "channel-144",
+      "portId": "transfer"
+    },
+    "gravitybridge_osmosis": {
+      "denomIn": "gravity0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
+      "denomOut": "ibc/001C80B8D0DA1CAE8E7420A08AC3F546D3E76B8DA6A767481C9DF5F9DCF8C43F",
+      "sourceChain": "gravitybridge",
+      "destChain": "osmosis",
+      "channelId": "channel-10",
+      "portId": "transfer"
+    }
+  },
+  "gravity0xd3d2E2692501A5c9Ca623199D38826e513033a17": {
+    "osmosis_gravitybridge": {
+      "denomIn": "ibc/00614E632C8F276241B0E00A941B592477F6431554EA3283D424E0C83B11B78B",
+      "denomOut": "gravity0xd3d2E2692501A5c9Ca623199D38826e513033a17",
+      "sourceChain": "osmosis",
+      "destChain": "gravitybridge",
+      "channelId": "channel-144",
+      "portId": "transfer"
+    },
+    "gravitybridge_osmosis": {
+      "denomIn": "gravity0xd3d2E2692501A5c9Ca623199D38826e513033a17",
+      "denomOut": "ibc/00614E632C8F276241B0E00A941B592477F6431554EA3283D424E0C83B11B78B",
+      "sourceChain": "gravitybridge",
+      "destChain": "osmosis",
+      "channelId": "channel-10",
+      "portId": "transfer"
+    }
+  },
+  "gravity0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": {
+    "osmosis_gravitybridge": {
+      "denomIn": "ibc/9F9B07EF9AD291167CF5700628145DE1DEB777C2CFC7907553B24446515F6D0E",
+      "denomOut": "gravity0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "sourceChain": "osmosis",
+      "destChain": "gravitybridge",
+      "channelId": "channel-144",
+      "portId": "transfer"
+    },
+    "gravitybridge_osmosis": {
+      "denomIn": "gravity0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "denomOut": "ibc/9F9B07EF9AD291167CF5700628145DE1DEB777C2CFC7907553B24446515F6D0E",
+      "sourceChain": "gravitybridge",
+      "destChain": "osmosis",
+      "channelId": "channel-10",
+      "portId": "transfer"
+    }
+  },
+  "udarc": {
+    "osmosis_konstellation": {
+      "denomIn": "ibc/02B102C03E5DECE03BB9F0C6543E8C5991DCC7E1E8AB90D9ADE75793FD877640",
+      "denomOut": "udarc",
+      "sourceChain": "osmosis",
+      "destChain": "konstellation",
+      "channelId": "channel-1466",
+      "portId": "transfer"
+    },
+    "konstellation_osmosis": {
+      "denomIn": "udarc",
+      "denomOut": "ibc/02B102C03E5DECE03BB9F0C6543E8C5991DCC7E1E8AB90D9ADE75793FD877640",
+      "sourceChain": "konstellation",
+      "destChain": "osmosis",
+      "channelId": "channel-8",
+      "portId": "transfer"
+    }
+  },
+  "cw20:juno1u45shlp0q4gcckvsj06ss4xuvsu0z24a0d0vr9ce6r24pht4e5xq7q995n": {
+    "osmosis_juno": {
+      "denomIn": "ibc/09934CA76DC582EEB1283A78C6BB45B79A6A4A4CDF64772DF2464B800D4A063B",
+      "denomOut": "cw20:juno1u45shlp0q4gcckvsj06ss4xuvsu0z24a0d0vr9ce6r24pht4e5xq7q995n",
+      "sourceChain": "osmosis",
+      "destChain": "juno",
+      "channelId": "channel-168",
+      "portId": "transfer"
+    },
+    "juno_osmosis": {
+      "denomIn": "cw20:juno1u45shlp0q4gcckvsj06ss4xuvsu0z24a0d0vr9ce6r24pht4e5xq7q995n",
+      "denomOut": "ibc/09934CA76DC582EEB1283A78C6BB45B79A6A4A4CDF64772DF2464B800D4A063B",
+      "sourceChain": "juno",
+      "destChain": "osmosis",
+      "channelId": "channel-43",
+      "portId": "transfer"
+    }
+  },
+  "cw20:juno12etxwkxvms0uy9ak8g3pyq6a53myukufdnx82pakzmjmpm77a0ksr9gs5v": {
+    "osmosis_juno": {
+      "denomIn": "ibc/06E7F44709AA82545D317E925310969F74A0923719CDBB32EFF6A47F4C0FD9AF",
+      "denomOut": "cw20:juno12etxwkxvms0uy9ak8g3pyq6a53myukufdnx82pakzmjmpm77a0ksr9gs5v",
+      "sourceChain": "osmosis",
+      "destChain": "juno",
+      "channelId": "channel-169",
+      "portId": "transfer"
+    },
+    "juno_osmosis": {
+      "denomIn": "cw20:juno12etxwkxvms0uy9ak8g3pyq6a53myukufdnx82pakzmjmpm77a0ksr9gs5v",
+      "denomOut": "ibc/06E7F44709AA82545D317E925310969F74A0923719CDBB32EFF6A47F4C0FD9AF",
+      "sourceChain": "juno",
+      "destChain": "osmosis",
+      "channelId": "channel-47",
+      "portId": "transfer"
+    }
+  },
+  "cw20:juno15u3dt79t6sxxa3x3kpkhzsy56edaa5a66wvt3kxmukqjz2sx0hes5sn38g": {
+    "osmosis_juno": {
+      "denomIn": "ibc/00B6E60AD3D65CBEF5579AC8AF609527C0B57535B6E32D96C80A735344FD9DCC",
+      "denomOut": "cw20:juno15u3dt79t6sxxa3x3kpkhzsy56edaa5a66wvt3kxmukqjz2sx0hes5sn38g",
+      "sourceChain": "osmosis",
+      "destChain": "juno",
+      "channelId": "channel-169",
+      "portId": "transfer"
+    },
+    "juno_osmosis": {
+      "denomIn": "cw20:juno15u3dt79t6sxxa3x3kpkhzsy56edaa5a66wvt3kxmukqjz2sx0hes5sn38g",
+      "denomOut": "ibc/00B6E60AD3D65CBEF5579AC8AF609527C0B57535B6E32D96C80A735344FD9DCC",
+      "sourceChain": "juno",
+      "destChain": "osmosis",
+      "channelId": "channel-47",
+      "portId": "transfer"
+    }
+  },
+  "cw20:juno1k2ruzzvvwwtwny6gq6kcwyfhkzahaunp685wmz4hafplduekj98q9hgs6d": {
+    "osmosis_juno": {
+      "denomIn": "ibc/04BE4E9C825ED781F9684A1226114BB49607500CAD855F1E3FEEC18532297250",
+      "denomOut": "cw20:juno1k2ruzzvvwwtwny6gq6kcwyfhkzahaunp685wmz4hafplduekj98q9hgs6d",
+      "sourceChain": "osmosis",
+      "destChain": "juno",
+      "channelId": "channel-169",
+      "portId": "transfer"
+    },
+    "juno_osmosis": {
+      "denomIn": "cw20:juno1k2ruzzvvwwtwny6gq6kcwyfhkzahaunp685wmz4hafplduekj98q9hgs6d",
+      "denomOut": "ibc/04BE4E9C825ED781F9684A1226114BB49607500CAD855F1E3FEEC18532297250",
+      "sourceChain": "juno",
+      "destChain": "osmosis",
+      "channelId": "channel-47",
+      "portId": "transfer"
+    }
+  },
+  "cw20:juno1w6cax0hr5hkvyr54xus5sqlpyk2krrs58d04lklse94rns9q9fxspka20y": {
+    "osmosis_juno": {
+      "denomIn": "ibc/031968018828B8100000BD5EC91BE36021F3A6306E20D173B899FEEBDD94FDF8",
+      "denomOut": "cw20:juno1w6cax0hr5hkvyr54xus5sqlpyk2krrs58d04lklse94rns9q9fxspka20y",
+      "sourceChain": "osmosis",
+      "destChain": "juno",
+      "channelId": "channel-169",
+      "portId": "transfer"
+    },
+    "juno_osmosis": {
+      "denomIn": "cw20:juno1w6cax0hr5hkvyr54xus5sqlpyk2krrs58d04lklse94rns9q9fxspka20y",
+      "denomOut": "ibc/031968018828B8100000BD5EC91BE36021F3A6306E20D173B899FEEBDD94FDF8",
+      "sourceChain": "juno",
+      "destChain": "osmosis",
+      "channelId": "channel-47",
+      "portId": "transfer"
+    }
+  },
+  "cw20:juno1zqrj3ta4u7ylv0wqzd8t8q3jrr9rdmn43zuzp9zemeunecnhy8fss778g7": {
+    "osmosis_juno": {
+      "denomIn": "ibc/00BC6883C29D45EAA021A55CFDD5884CA8EFF9D39F698A9FEF79E13819FF94F8",
+      "denomOut": "cw20:juno1zqrj3ta4u7ylv0wqzd8t8q3jrr9rdmn43zuzp9zemeunecnhy8fss778g7",
+      "sourceChain": "osmosis",
+      "destChain": "juno",
+      "channelId": "channel-169",
+      "portId": "transfer"
+    },
+    "juno_osmosis": {
+      "denomIn": "cw20:juno1zqrj3ta4u7ylv0wqzd8t8q3jrr9rdmn43zuzp9zemeunecnhy8fss778g7",
+      "denomOut": "ibc/00BC6883C29D45EAA021A55CFDD5884CA8EFF9D39F698A9FEF79E13819FF94F8",
+      "sourceChain": "juno",
+      "destChain": "osmosis",
+      "channelId": "channel-47",
+      "portId": "transfer"
+    }
+  },
+  "ubedrock": {
+    "osmosis_pylons": {
+      "denomIn": "ibc/0835781EF3F3ADD053874323AB660C75B50B18B16733CAB783CA6BBD78244EDF",
+      "denomOut": "ubedrock",
+      "sourceChain": "osmosis",
+      "destChain": "pylons",
+      "channelId": "channel-17683",
+      "portId": "transfer"
+    },
+    "pylons_osmosis": {
+      "denomIn": "ubedrock",
+      "denomOut": "ibc/0835781EF3F3ADD053874323AB660C75B50B18B16733CAB783CA6BBD78244EDF",
+      "sourceChain": "pylons",
+      "destChain": "osmosis",
+      "channelId": "channel-29",
+      "portId": "transfer"
+    }
+  },
+  "bnb.1.6.773edb": {
+    "osmosis_carbon": {
+      "denomIn": "ibc/09B40B4315A4A188A84E0C5F2A11013604B3F8D8542970A1F767481B6560E66B",
+      "denomOut": "bnb.1.6.773edb",
+      "sourceChain": "osmosis",
+      "destChain": "carbon",
+      "channelId": "channel-188",
+      "portId": "transfer"
+    },
+    "carbon_osmosis": {
+      "denomIn": "bnb.1.6.773edb",
+      "denomOut": "ibc/09B40B4315A4A188A84E0C5F2A11013604B3F8D8542970A1F767481B6560E66B",
+      "sourceChain": "carbon",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "eth.1.2.942d87": {
+    "osmosis_carbon": {
+      "denomIn": "ibc/0824A92510C1CE67BF02944854A5D7C7F392DF111045B4551ADDF7EFFEA05A32",
+      "denomOut": "eth.1.2.942d87",
+      "sourceChain": "osmosis",
+      "destChain": "carbon",
+      "channelId": "channel-188",
+      "portId": "transfer"
+    },
+    "carbon_osmosis": {
+      "denomIn": "eth.1.2.942d87",
+      "denomOut": "ibc/0824A92510C1CE67BF02944854A5D7C7F392DF111045B4551ADDF7EFFEA05A32",
+      "sourceChain": "carbon",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "orai": {
+    "osmosis_undefined": {
+      "denomIn": "ibc/075FAD80FBA9BBC09A3B2244A6BD3166BB049588AE009B7B310E9CBE84540E8D",
+      "denomOut": "orai",
+      "sourceChain": "osmosis",
+      "channelId": "channel-202",
+      "portId": "transfer"
+    },
+    "undefined_osmosis": {
+      "denomIn": "orai",
+      "denomOut": "ibc/075FAD80FBA9BBC09A3B2244A6BD3166BB049588AE009B7B310E9CBE84540E8D",
+      "destChain": "osmosis",
+      "channelId": "channel-3",
+      "portId": "transfer"
+    }
+  },
+  "aevmos": {
+    "osmosis_evmos": {
+      "denomIn": "ibc/6AE98883D4D5D5FF9E50D7130F1305DA2FFA0C652D1DD9C123657C6B4EB2DF8A",
+      "denomOut": "aevmos",
+      "sourceChain": "osmosis",
+      "destChain": "evmos",
+      "channelId": "channel-204",
+      "portId": "transfer"
+    },
+    "evmos_osmosis": {
+      "denomIn": "aevmos",
+      "denomOut": "ibc/6AE98883D4D5D5FF9E50D7130F1305DA2FFA0C652D1DD9C123657C6B4EB2DF8A",
+      "sourceChain": "evmos",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "weth-wei": {
+    "osmosis_axelar": {
+      "denomIn": "ibc/EA1D43981D5C9A1C4AAEA9C23BB1D4FA126BA9BC7020A25E0AE4AA841EA25DC5",
+      "denomOut": "weth-wei",
+      "sourceChain": "osmosis",
+      "destChain": "axelar",
+      "channelId": "channel-208",
+      "portId": "transfer"
+    },
+    "axelar_osmosis": {
+      "denomIn": "weth-wei",
+      "denomOut": "ibc/EA1D43981D5C9A1C4AAEA9C23BB1D4FA126BA9BC7020A25E0AE4AA841EA25DC5",
+      "sourceChain": "axelar",
+      "destChain": "osmosis",
+      "channelId": "channel-3",
+      "portId": "transfer"
+    }
+  },
+  "uusdc": {
+    "osmosis_axelar": {
+      "denomIn": "ibc/D189335C6E4A68B513C10AB227BF1C1D38C746766278BA3EEB4FB14124F1D858",
+      "denomOut": "uusdc",
+      "sourceChain": "osmosis",
+      "destChain": "axelar",
+      "channelId": "channel-208",
+      "portId": "transfer"
+    },
+    "axelar_osmosis": {
+      "denomIn": "uusdc",
+      "denomOut": "ibc/D189335C6E4A68B513C10AB227BF1C1D38C746766278BA3EEB4FB14124F1D858",
+      "sourceChain": "axelar",
+      "destChain": "osmosis",
+      "channelId": "channel-3",
+      "portId": "transfer"
+    },
+    "osmosis_noble": {
+      "denomIn": "ibc/498A0751C798A0D9A389AA3691123DADA57DAA4FE165D5C75894505B876BA6E4",
+      "denomOut": "uusdc",
+      "sourceChain": "osmosis",
+      "destChain": "noble",
+      "channelId": "channel-750",
+      "portId": "transfer"
+    },
+    "noble_osmosis": {
+      "denomIn": "uusdc",
+      "denomOut": "ibc/498A0751C798A0D9A389AA3691123DADA57DAA4FE165D5C75894505B876BA6E4",
+      "sourceChain": "noble",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/4gn1J9pchUGh63ez1VwiuTmU4nfJ8Rr8o5HgBC5TMdMk": {
+    "osmosis_gateway": {
+      "denomIn": "ibc/03B6D1925A09B3033AA6FA8772202719ABDC51F8CC2A5C26D0A9B19832F2C023",
+      "denomOut": "factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/4gn1J9pchUGh63ez1VwiuTmU4nfJ8Rr8o5HgBC5TMdMk",
+      "sourceChain": "osmosis",
+      "destChain": "gateway",
+      "channelId": "channel-2186",
+      "portId": "transfer"
+    },
+    "gateway_osmosis": {
+      "denomIn": "factory/wormhole14ejqjyq8um4p3xfqj74yld5waqljf88fz25yxnma0cngspxe3les00fpjx/4gn1J9pchUGh63ez1VwiuTmU4nfJ8Rr8o5HgBC5TMdMk",
+      "denomOut": "ibc/03B6D1925A09B3033AA6FA8772202719ABDC51F8CC2A5C26D0A9B19832F2C023",
+      "sourceChain": "gateway",
+      "destChain": "osmosis",
+      "channelId": "channel-3",
+      "portId": "transfer"
+    }
+  },
+  "unym": {
+    "osmosis_nyx": {
+      "denomIn": "ibc/01A4993F4FD6F7A9051FEB837FC194E2528ED4B80E188AEEAB4F037BD86194CD",
+      "denomOut": "unym",
+      "sourceChain": "osmosis",
+      "destChain": "nyx",
+      "channelId": "channel-228",
+      "portId": "transfer"
+    },
+    "nyx_osmosis": {
+      "denomIn": "unym",
+      "denomOut": "ibc/01A4993F4FD6F7A9051FEB837FC194E2528ED4B80E188AEEAB4F037BD86194CD",
+      "sourceChain": "nyx",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "factory:kujira13y8hs83sk0la7na2w5g5nzrnjjpnkvmd7e87yd35g8dcph7dn0ksenay2a:ulp": {
+    "osmosis_kujira": {
+      "denomIn": "ibc/0761E176A09918AFBF57C7AE43357F44E7EDFFA1C29E4A9B6EAECE9A59A946F3",
+      "denomOut": "factory:kujira13y8hs83sk0la7na2w5g5nzrnjjpnkvmd7e87yd35g8dcph7dn0ksenay2a:ulp",
+      "sourceChain": "osmosis",
+      "destChain": "kujira",
+      "channelId": "channel-259",
+      "portId": "transfer"
+    },
+    "kujira_osmosis": {
+      "denomIn": "factory:kujira13y8hs83sk0la7na2w5g5nzrnjjpnkvmd7e87yd35g8dcph7dn0ksenay2a:ulp",
+      "denomOut": "ibc/0761E176A09918AFBF57C7AE43357F44E7EDFFA1C29E4A9B6EAECE9A59A946F3",
+      "sourceChain": "kujira",
+      "destChain": "osmosis",
+      "channelId": "channel-3",
+      "portId": "transfer"
+    }
+  },
+  "factory:kujira1n3fr5f56r2ce0s37wdvwrk98yhhq3unnxgcqus8nzsfxvllk0yxquurqty:ampKUJI": {
+    "osmosis_kujira": {
+      "denomIn": "ibc/04908A077381D38524451F5E2F387E47A12244E5526397E73C0CBAD83E372910",
+      "denomOut": "factory:kujira1n3fr5f56r2ce0s37wdvwrk98yhhq3unnxgcqus8nzsfxvllk0yxquurqty:ampKUJI",
+      "sourceChain": "osmosis",
+      "destChain": "kujira",
+      "channelId": "channel-259",
+      "portId": "transfer"
+    },
+    "kujira_osmosis": {
+      "denomIn": "factory:kujira1n3fr5f56r2ce0s37wdvwrk98yhhq3unnxgcqus8nzsfxvllk0yxquurqty:ampKUJI",
+      "denomOut": "ibc/04908A077381D38524451F5E2F387E47A12244E5526397E73C0CBAD83E372910",
+      "sourceChain": "kujira",
+      "destChain": "osmosis",
+      "channelId": "channel-3",
+      "portId": "transfer"
+    }
+  },
+  "stuumee": {
+    "osmosis_stride": {
+      "denomIn": "ibc/02F196DA6FD0917DD5FEA249EE61880F4D941EE9059E7964C5C9B50AF103800F",
+      "denomOut": "stuumee",
+      "sourceChain": "osmosis",
+      "destChain": "stride",
+      "channelId": "channel-326",
+      "portId": "transfer"
+    },
+    "stride_osmosis": {
+      "denomIn": "stuumee",
+      "denomOut": "ibc/02F196DA6FD0917DD5FEA249EE61880F4D941EE9059E7964C5C9B50AF103800F",
+      "sourceChain": "stride",
+      "destChain": "osmosis",
+      "channelId": "channel-5",
+      "portId": "transfer"
+    }
+  },
+  "cw20:terra1ctelwayk6t2zu30a8v9kdg3u2gr0slpjdfny5pjp7m3tuquk32ysugyjdg": {
+    "osmosis_terra2": {
+      "denomIn": "ibc/013C2DC54E50B760F1088513814C3525BE3CCF7BEA7E3B723AB50E3A73E0B725",
+      "denomOut": "cw20:terra1ctelwayk6t2zu30a8v9kdg3u2gr0slpjdfny5pjp7m3tuquk32ysugyjdg",
+      "sourceChain": "osmosis",
+      "destChain": "terra2",
+      "channelId": "channel-341",
+      "portId": "transfer"
+    },
+    "terra2_osmosis": {
+      "denomIn": "cw20:terra1ctelwayk6t2zu30a8v9kdg3u2gr0slpjdfny5pjp7m3tuquk32ysugyjdg",
+      "denomOut": "ibc/013C2DC54E50B760F1088513814C3525BE3CCF7BEA7E3B723AB50E3A73E0B725",
+      "sourceChain": "terra2",
+      "destChain": "osmosis",
+      "channelId": "channel-26",
+      "portId": "transfer"
+    }
+  },
+  "cw20:terra1x62mjnme4y0rdnag3r8rfgjuutsqlkkyuh4ndgex0wl3wue25uksau39q8": {
+    "osmosis_terra2": {
+      "denomIn": "ibc/0613015ADBC138C75772D6A64C07302FACC8761019B5F453A0E94AB831A85DF5",
+      "denomOut": "cw20:terra1x62mjnme4y0rdnag3r8rfgjuutsqlkkyuh4ndgex0wl3wue25uksau39q8",
+      "sourceChain": "osmosis",
+      "destChain": "terra2",
+      "channelId": "channel-341",
+      "portId": "transfer"
+    },
+    "terra2_osmosis": {
+      "denomIn": "cw20:terra1x62mjnme4y0rdnag3r8rfgjuutsqlkkyuh4ndgex0wl3wue25uksau39q8",
+      "denomOut": "ibc/0613015ADBC138C75772D6A64C07302FACC8761019B5F453A0E94AB831A85DF5",
+      "sourceChain": "terra2",
+      "destChain": "osmosis",
+      "channelId": "channel-26",
+      "portId": "transfer"
+    }
+  },
+  "cw20:terra1xp9hrhthzddnl7j5du83gqqr4wmdjm5t0guzg9jp6jwrtpukwfjsjgy4f3": {
+    "osmosis_terra2": {
+      "denomIn": "ibc/06EF575844982382F4D1BC3830D294557A30EDB3CD223153AFC8DFEF06349C56",
+      "denomOut": "cw20:terra1xp9hrhthzddnl7j5du83gqqr4wmdjm5t0guzg9jp6jwrtpukwfjsjgy4f3",
+      "sourceChain": "osmosis",
+      "destChain": "terra2",
+      "channelId": "channel-341",
+      "portId": "transfer"
+    },
+    "terra2_osmosis": {
+      "denomIn": "cw20:terra1xp9hrhthzddnl7j5du83gqqr4wmdjm5t0guzg9jp6jwrtpukwfjsjgy4f3",
+      "denomOut": "ibc/06EF575844982382F4D1BC3830D294557A30EDB3CD223153AFC8DFEF06349C56",
+      "sourceChain": "terra2",
+      "destChain": "osmosis",
+      "channelId": "channel-26",
+      "portId": "transfer"
+    }
+  },
+  "arebus": {
+    "osmosis_rebus": {
+      "denomIn": "ibc/12EE56D159B4D524E45FC86FCA25157556F89633235B8AC2EFC0D16528ED1B45",
+      "denomOut": "arebus",
+      "sourceChain": "osmosis",
+      "destChain": "rebus",
+      "channelId": "channel-363",
+      "portId": "transfer"
+    },
+    "rebus_osmosis": {
+      "denomIn": "arebus",
+      "denomOut": "ibc/12EE56D159B4D524E45FC86FCA25157556F89633235B8AC2EFC0D16528ED1B45",
+      "sourceChain": "rebus",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "usaga": {
+    "osmosis_saga": {
+      "denomIn": "ibc/094FB70C3006906F67F5D674073D2DAFAFB41537E7033098F5C752F211E7B6C2",
+      "denomOut": "usaga",
+      "sourceChain": "osmosis",
+      "destChain": "saga",
+      "channelId": "channel-38946",
+      "portId": "transfer"
+    },
+    "saga_osmosis": {
+      "denomIn": "usaga",
+      "denomOut": "ibc/094FB70C3006906F67F5D674073D2DAFAFB41537E7033098F5C752F211E7B6C2",
+      "sourceChain": "saga",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "xeth": {
+    "osmosis_sifchain": {
+      "denomIn": "ibc/0197B306533D6EDC5F8F72A111A9582FFC8C10420FF45EE59DCE9643E1B3D842",
+      "denomOut": "xeth",
+      "sourceChain": "osmosis",
+      "destChain": "sifchain",
+      "channelId": "channel-47",
+      "portId": "transfer"
+    },
+    "sifchain_osmosis": {
+      "denomIn": "xeth",
+      "denomOut": "ibc/0197B306533D6EDC5F8F72A111A9582FFC8C10420FF45EE59DCE9643E1B3D842",
+      "sourceChain": "sifchain",
+      "destChain": "osmosis",
+      "channelId": "channel-17",
+      "portId": "transfer"
+    }
+  },
+  "uluna": {
+    "osmosis_undefined": {
+      "denomIn": "ibc/003A5C66EB401A47E94B8085690985421C140411900A95F194271C6C716902BA",
+      "denomOut": "uluna",
+      "sourceChain": "osmosis",
+      "channelId": "channel-48",
+      "portId": "transfer"
+    },
+    "undefined_osmosis": {
+      "denomIn": "uluna",
+      "denomOut": "ibc/003A5C66EB401A47E94B8085690985421C140411900A95F194271C6C716902BA",
+      "destChain": "osmosis",
+      "channelId": "channel-2",
+      "portId": "transfer"
+    }
+  },
+  "umedas": {
+    "osmosis_medasdigital": {
+      "denomIn": "ibc/01E94A5FF29B8DDEFC86F412CC3927F7330E9B523CC63A6194B1108F5276025C",
+      "denomOut": "umedas",
+      "sourceChain": "osmosis",
+      "destChain": "medasdigital",
+      "channelId": "channel-519",
+      "portId": "transfer"
+    },
+    "medasdigital_osmosis": {
+      "denomIn": "umedas",
+      "denomOut": "ibc/01E94A5FF29B8DDEFC86F412CC3927F7330E9B523CC63A6194B1108F5276025C",
+      "sourceChain": "medasdigital",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "ufis": {
+    "osmosis_stafihub": {
+      "denomIn": "ibc/01D2F0C4739C871BFBEE7E786709E6904A55559DC1483DD92ED392EF12247862",
+      "denomOut": "ufis",
+      "sourceChain": "osmosis",
+      "destChain": "stafihub",
+      "channelId": "channel-5413",
+      "portId": "transfer"
+    },
+    "stafihub_osmosis": {
+      "denomIn": "ufis",
+      "denomOut": "ibc/01D2F0C4739C871BFBEE7E786709E6904A55559DC1483DD92ED392EF12247862",
+      "sourceChain": "stafihub",
+      "destChain": "osmosis",
+      "channelId": "channel-10",
+      "portId": "transfer"
+    }
+  },
+  "nund": {
+    "osmosis_unification": {
+      "denomIn": "ibc/0043C601A2A1D3E17E5F5814DAA9C7D19AFF66B8FAE66CC39F4815CFB31FD677",
+      "denomOut": "nund",
+      "sourceChain": "osmosis",
+      "destChain": "unification",
+      "channelId": "channel-6094",
+      "portId": "transfer"
+    },
+    "unification_osmosis": {
+      "denomIn": "nund",
+      "denomOut": "ibc/0043C601A2A1D3E17E5F5814DAA9C7D19AFF66B8FAE66CC39F4815CFB31FD677",
+      "sourceChain": "unification",
+      "destChain": "osmosis",
+      "channelId": "channel-5",
+      "portId": "transfer"
+    }
+  },
+  "umed": {
+    "osmosis_undefined": {
+      "denomIn": "ibc/064813316BC239241FC2CF763351E86F25D130B93243604B052E3D8E36F369A1",
+      "denomOut": "umed",
+      "sourceChain": "osmosis",
+      "channelId": "channel-640",
+      "portId": "transfer"
+    },
+    "undefined_osmosis": {
+      "denomIn": "umed",
+      "denomOut": "ibc/064813316BC239241FC2CF763351E86F25D130B93243604B052E3D8E36F369A1",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    },
+    "osmosis_panacea": {
+      "denomIn": "ibc/0927C519BFAF5F57DAF6357CFE25CCC4C8956245F9C8B5A1F161CFCFB8A51851",
+      "denomOut": "umed",
+      "sourceChain": "osmosis",
+      "destChain": "panacea",
+      "channelId": "channel-74",
+      "portId": "transfer"
+    },
+    "panacea_osmosis": {
+      "denomIn": "umed",
+      "denomOut": "ibc/0927C519BFAF5F57DAF6357CFE25CCC4C8956245F9C8B5A1F161CFCFB8A51851",
+      "sourceChain": "panacea",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "factory/migaloo1d0uma9qzcts4fzt7ml39xp44aut5k6qyjfzz4asalnecppppr3rsl52vvv/rstk": {
+    "osmosis_migaloo": {
+      "denomIn": "ibc/04FAC73DFF7F1DD59395948F2F043B0BBF978AD4533EE37E811340F501A08FFB",
+      "denomOut": "factory/migaloo1d0uma9qzcts4fzt7ml39xp44aut5k6qyjfzz4asalnecppppr3rsl52vvv/rstk",
+      "sourceChain": "osmosis",
+      "destChain": "migaloo",
+      "channelId": "channel-642",
+      "portId": "transfer"
+    },
+    "migaloo_osmosis": {
+      "denomIn": "factory/migaloo1d0uma9qzcts4fzt7ml39xp44aut5k6qyjfzz4asalnecppppr3rsl52vvv/rstk",
+      "denomOut": "ibc/04FAC73DFF7F1DD59395948F2F043B0BBF978AD4533EE37E811340F501A08FFB",
+      "sourceChain": "migaloo",
+      "destChain": "osmosis",
+      "channelId": "channel-5",
+      "portId": "transfer"
+    }
+  },
+  "uchf": {
+    "osmosis_terra": {
+      "denomIn": "ibc/0863B7BFD46942F07AA55B3C7138C50F26D9A8168A47767897B04DBF41B7DF37",
+      "denomOut": "uchf",
+      "sourceChain": "osmosis",
+      "destChain": "terra",
+      "channelId": "channel-72",
+      "portId": "transfer"
+    },
+    "terra_osmosis": {
+      "denomIn": "uchf",
+      "denomOut": "ibc/0863B7BFD46942F07AA55B3C7138C50F26D9A8168A47767897B04DBF41B7DF37",
+      "sourceChain": "terra",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "ft4B030260D99E3ABE2B604EA2B33BAF3C085CDA12": {
+    "osmosis_bitsong": {
+      "denomIn": "ibc/022A879A5301CBCACF96216C967805F15C33C615B74DC7236027C1BA1BF664FF",
+      "denomOut": "ft4B030260D99E3ABE2B604EA2B33BAF3C085CDA12",
+      "sourceChain": "osmosis",
+      "destChain": "bitsong",
+      "channelId": "channel-73",
+      "portId": "transfer"
+    },
+    "bitsong_osmosis": {
+      "denomIn": "ft4B030260D99E3ABE2B604EA2B33BAF3C085CDA12",
+      "denomOut": "ibc/022A879A5301CBCACF96216C967805F15C33C615B74DC7236027C1BA1BF664FF",
+      "sourceChain": "bitsong",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "ft85AE1716C5E39EA6D64BBD7898C3899A7B500626": {
+    "osmosis_bitsong": {
+      "denomIn": "ibc/051A38BBEF92B9D8293AFBE1FA293E704359E9CB28297A0FD5DBA3E9CCEE9AB1",
+      "denomOut": "ft85AE1716C5E39EA6D64BBD7898C3899A7B500626",
+      "sourceChain": "osmosis",
+      "destChain": "bitsong",
+      "channelId": "channel-73",
+      "portId": "transfer"
+    },
+    "bitsong_osmosis": {
+      "denomIn": "ft85AE1716C5E39EA6D64BBD7898C3899A7B500626",
+      "denomOut": "ibc/051A38BBEF92B9D8293AFBE1FA293E704359E9CB28297A0FD5DBA3E9CCEE9AB1",
+      "sourceChain": "bitsong",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "acvnt": {
+    "osmosis_conscious": {
+      "denomIn": "ibc/044B7B28AFE93CEC769CF529ADC626DA09EA0EFA3E0E3284D540E9E00E01E24A",
+      "denomOut": "acvnt",
+      "sourceChain": "osmosis",
+      "destChain": "conscious",
+      "channelId": "channel-73971",
+      "portId": "transfer"
+    },
+    "conscious_osmosis": {
+      "denomIn": "acvnt",
+      "denomOut": "ibc/044B7B28AFE93CEC769CF529ADC626DA09EA0EFA3E0E3284D540E9E00E01E24A",
+      "sourceChain": "conscious",
+      "destChain": "osmosis",
+      "channelId": "channel-6",
+      "portId": "transfer"
+    }
+  },
+  "ufrienzies": {
+    "osmosis_noble": {
+      "denomIn": "ibc/7FA7EC64490E3BDE5A1A28CBE73CC0AD22522794957BC891C46321E3A6074DB9",
+      "denomOut": "ufrienzies",
+      "sourceChain": "osmosis",
+      "destChain": "noble",
+      "channelId": "channel-750",
+      "portId": "transfer"
+    },
+    "noble_osmosis": {
+      "denomIn": "ufrienzies",
+      "denomOut": "ibc/7FA7EC64490E3BDE5A1A28CBE73CC0AD22522794957BC891C46321E3A6074DB9",
+      "sourceChain": "noble",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "ujmes": {
+    "osmosis_undefined": {
+      "denomIn": "ibc/0431F9D0CA099C1D2E6676D642104E5D581117E87B0BF979F65CCE0099521669",
+      "denomOut": "ujmes",
+      "sourceChain": "osmosis",
+      "channelId": "channel-8651",
+      "portId": "transfer"
+    },
+    "undefined_osmosis": {
+      "denomIn": "ujmes",
+      "denomOut": "ibc/0431F9D0CA099C1D2E6676D642104E5D581117E87B0BF979F65CCE0099521669",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "ucmdx": {
+    "osmosis_comdex": {
+      "denomIn": "ibc/EA3E1640F9B1532AB129A571203A0B9F789A7F14BB66E350DCBFA18E1A1931F0",
+      "denomOut": "ucmdx",
+      "sourceChain": "osmosis",
+      "destChain": "comdex",
+      "channelId": "channel-87",
+      "portId": "transfer"
+    },
+    "comdex_osmosis": {
+      "denomIn": "ucmdx",
+      "denomOut": "ibc/EA3E1640F9B1532AB129A571203A0B9F789A7F14BB66E350DCBFA18E1A1931F0",
+      "sourceChain": "comdex",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/MOO": {
+    "osmosis_neutron": {
+      "denomIn": "ibc/B9A1B8C537238AA84320258F3BEF37B0E4C9378DDD431661C21D20C6CD4AF0E3",
+      "denomOut": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/MOO",
+      "sourceChain": "osmosis",
+      "destChain": "neutron",
+      "channelId": "channel-874",
+      "portId": "transfer"
+    },
+    "neutron_osmosis": {
+      "denomIn": "factory/neutron133xakkrfksq39wxy575unve2nyehg5npx75nph/MOO",
+      "denomOut": "ibc/B9A1B8C537238AA84320258F3BEF37B0E4C9378DDD431661C21D20C6CD4AF0E3",
+      "sourceChain": "neutron",
+      "destChain": "osmosis",
+      "channelId": "channel-10",
+      "portId": "transfer"
+    }
+  },
+  "umcoin": {
+    "osmosis_undefined": {
+      "denomIn": "ibc/02229C346BF85FAA462C73FEE643507388063D0E0036ED2E83FD17F2902CC133",
+      "denomOut": "umcoin",
+      "sourceChain": "osmosis",
+      "channelId": "channel-879",
+      "portId": "transfer"
+    },
+    "undefined_osmosis": {
+      "denomIn": "umcoin",
+      "denomOut": "ibc/02229C346BF85FAA462C73FEE643507388063D0E0036ED2E83FD17F2902CC133",
+      "destChain": "osmosis",
+      "channelId": "channel-0",
+      "portId": "transfer"
+    }
+  },
+  "uscrt": {
+    "osmosis_secretnetwork": {
+      "denomIn": "ibc/0954E1C28EB7AF5B72D24F3BC2B47BBB2FDF91BDDFD57B74B99E133AED40972A",
+      "denomOut": "uscrt",
+      "sourceChain": "osmosis",
+      "destChain": "secretnetwork",
+      "channelId": "channel-88",
+      "portId": "transfer"
+    },
+    "secretnetwork_osmosis": {
+      "denomIn": "uscrt",
+      "denomOut": "ibc/0954E1C28EB7AF5B72D24F3BC2B47BBB2FDF91BDDFD57B74B99E133AED40972A",
+      "sourceChain": "secretnetwork",
+      "destChain": "osmosis",
+      "channelId": "channel-1",
+      "portId": "transfer"
+    }
+  },
+  "milliampere": {
+    "osmosis_bostrom": {
+      "denomIn": "ibc/020F5162B7BC40656FC5432622647091F00D53E82EE8D21757B43D3282F25424",
+      "denomOut": "milliampere",
+      "sourceChain": "osmosis",
+      "destChain": "bostrom",
+      "channelId": "channel-95",
+      "portId": "transfer"
+    },
+    "bostrom_osmosis": {
+      "denomIn": "milliampere",
+      "denomOut": "ibc/020F5162B7BC40656FC5432622647091F00D53E82EE8D21757B43D3282F25424",
+      "sourceChain": "bostrom",
+      "destChain": "osmosis",
+      "channelId": "channel-2",
+      "portId": "transfer"
+    }
+  },
+  "pool79B9E8E233B61B84EA5AE564AB080FC492B4C953A9D8B409F300D9E29716459F": {
+    "osmosis_bostrom": {
+      "denomIn": "ibc/02B6117D610A3445FE340438EE3EA7FCDEEA816C10B0945CD02C683D1111E828",
+      "denomOut": "pool79B9E8E233B61B84EA5AE564AB080FC492B4C953A9D8B409F300D9E29716459F",
+      "sourceChain": "osmosis",
+      "destChain": "bostrom",
+      "channelId": "channel-95",
+      "portId": "transfer"
+    },
+    "bostrom_osmosis": {
+      "denomIn": "pool79B9E8E233B61B84EA5AE564AB080FC492B4C953A9D8B409F300D9E29716459F",
+      "denomOut": "ibc/02B6117D610A3445FE340438EE3EA7FCDEEA816C10B0945CD02C683D1111E828",
+      "sourceChain": "bostrom",
+      "destChain": "osmosis",
+      "channelId": "channel-2",
+      "portId": "transfer"
+    }
+  }
+}
