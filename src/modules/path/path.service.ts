@@ -1,19 +1,94 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { COSMOS_MANIFESTS, CosmosHubChains } from '../../constants/manifests';
-import { Interval } from '@nestjs/schedule';
+import { Interval, Timeout } from '@nestjs/schedule';
+import { CACHE_MANAGER } from '@nestjs/cache-manager';
+import { Cache } from 'cache-manager';
+import { InjectRepository } from '@nestjs/typeorm';
+import { PathEntity } from './path.entity';
+import { Repository } from 'typeorm';
 import * as fs from 'fs';
+import { GetRouteDto } from './dtos/get-route.dto';
 
 @Injectable()
 export class PathService {
   private mappingChainId: { [key: string]: string };
-  private dataCache = {};
-  constructor(private readonly httpService: HttpService) {}
+  constructor(
+    private readonly httpService: HttpService,
+    @Inject(CACHE_MANAGER)
+    private readonly cacheManager: Cache,
+    @InjectRepository(PathEntity)
+    private readonly pathRepository: Repository<PathEntity>,
+  ) {}
+
+  async getRoute(dto: GetRouteDto) {
+    const { denom, derivePath } = dto;
+    const [sourceChain, destChain] = derivePath.split('_');
+    console.log('🚀 ~ PathService ~ getRoute ~ denom:', denom);
+    console.log(
+      '🚀 ~ PathService ~ getRoute ~ derivePath:',
+      sourceChain,
+      destChain,
+    );
+    const directlyRoute = await this.pathRepository.findOneBy({
+      denom,
+      sourceChain,
+      destChain,
+    });
+    if (directlyRoute) {
+      return [directlyRoute.metadata];
+    }
+    let bestRoute = null;
+    let bestRouteLength = Number.POSITIVE_INFINITY;
+    const findPath = async (
+      _sourceChain: string,
+      maxHops: number = 3,
+      res: any[] = [],
+      chains: string = '',
+    ) => {
+      console.log(
+        '🚀 ~ PathService ~ getRoute ~ res:',
+        `${chains}_${_sourceChain}`,
+      );
+      if (res.length >= bestRouteLength || maxHops === 0) {
+        return;
+      }
+      const paths = await this.pathRepository.findBy({
+        denom,
+        sourceChain: _sourceChain,
+      });
+      console.log("🚀 ~ PathService ~ getRoute ~ paths:", paths)
+      if (paths.length === 0) {
+        return;
+      }
+      const isDestChain = paths.find((path) => path.destChain === destChain);
+      if (isDestChain) {
+        bestRoute = [...res, isDestChain.metadata];
+        bestRouteLength = bestRoute.length;
+        return;
+      }
+      await Promise.all(
+        paths.map((path) =>
+          findPath(
+            path.destChain,
+            maxHops - 1,
+            [...res, path.metadata],
+            `${chains}_${sourceChain}`,
+          ),
+        ),
+      );
+    };
+
+    await findPath(sourceChain);
+    if (!bestRoute) {
+      throw new NotFoundException('Route not found');
+    }
+
+    return bestRoute;
+  }
 
   async getAllDenom(chain: CosmosHubChains) {
-    if (!this.mappingChainId) {
-      await this.getChainInfo();
-    }
+    console.log('🚀 ~ PathService ~ getAllDenom ~ chain:', chain);
     const rpcEndpoint = COSMOS_MANIFESTS[chain].lcdURL;
     const { data } = await this.httpService.axiosRef.get(
       `${rpcEndpoint}/ibc/apps/transfer/v1/denom_traces`,
@@ -28,7 +103,11 @@ export class PathService {
         return this.buildPath(base_denom, sliptPath[0], sliptPath[1], chain);
       }),
     );
-    await this.formatPaths(paths.filter(path => path));
+    console.log(
+      '🚀 ~ PathService ~ getAllDenom ~ paths:',
+      paths.filter((path) => path).length,
+    );
+    await this.formatPaths(paths.filter((path) => path));
   }
 
   async buildPath(
@@ -76,12 +155,11 @@ export class PathService {
       }
       return null;
     } catch (error) {
-      //   console.log("🚀 ~ PathService ~ error:", error)
       return null;
     }
   }
 
-   formatPaths(paths: any[]) {
+  async formatPaths(paths: any[]) {
     for (const path of paths) {
       const {
         denomIn,
@@ -92,34 +170,107 @@ export class PathService {
         counterpartyChannelId,
         portId,
       } = path;
-      if (!this.dataCache[denomOut]) {
-        this.dataCache[denomOut] = {};
-      }
-      this.dataCache[denomOut][`${sourceChain}_${destChain}`] = {
-        denomIn,
-        denomOut,
-        sourceChain,
-        destChain,
-        channelId,
-        portId,
-      };
-      this.dataCache[denomOut][`${destChain}_${sourceChain}`] = {
-        denomIn: denomOut,
-        denomOut: denomIn,
-        sourceChain: destChain,
-        destChain: sourceChain,
-        channelId: counterpartyChannelId,
-        portId: portId,
-      };
+      await this.pathRepository.upsert(
+        [
+          {
+            denom: denomOut,
+            metadata: {
+              denomIn,
+              denomOut,
+              sourceChain,
+              destChain,
+              channelId,
+              portId,
+            },
+          },
+          {
+            denom: denomOut,
+            metadata: {
+              denomIn: denomOut,
+              denomOut: denomIn,
+              sourceChain: destChain,
+              destChain: sourceChain,
+              channelId: counterpartyChannelId,
+              portId: portId,
+            },
+          },
+        ],
+        ['denom', 'derivePath'],
+      );
     }
   }
 
-  @Interval( 1000)
+  async getAllIBCs() {
+    const { data: ibcTokens } = await this.httpService.axiosRef.get(
+      'https://raw.githubusercontent.com/PulsarDefi/IBC-Token-Data-Cosmos/main/ibc_data.min.json',
+    );
+    const res = {};
+    for (const ibc of Object.values(ibcTokens) as any[]) {
+      if (!ibc.chain || !ibc.origin.chain) continue;
+      if (ibc.chain in CosmosHubChains || ibc.origin.chain in CosmosHubChains) {
+        console.log('🚀 ~ PathService ~ getAllIBCs ~ ibc:', ibc.origin.denom);
+        const [portId, channelId] = ibc.path.split('/');
+        await this.pathRepository.upsert(
+          {
+            denom: ibc.origin.denom,
+            sourceChain: ibc.chain,
+            destChain: ibc.origin.chain,
+            metadata: {
+              chain: this.mappingChainId[String(ibc.chain)],
+              portId: portId,
+              channelId: channelId,
+              address: ibc.origin.denom,
+            } as any,
+          },
+          ['denom', 'sourceChain', 'destChain'],
+        );
+        if (ibc.origin.chain in CosmosHubChains) {
+          const rpcEndpoint = COSMOS_MANIFESTS[ibc.origin.chain].lcdURL;
+          try {
+            const {
+              data: {
+                channel: {
+                  counterparty: { channel_id: counterpartyChannelId },
+                },
+              },
+            } = await this.httpService.axiosRef.get(
+              `${rpcEndpoint}/ibc/core/channel/v1/channels/${channelId}/ports/${portId}`,
+            );
+            console.log(
+              '🚀 ~ PathService ~ getAllIBCs ~ counterpartyChannelId:',
+              counterpartyChannelId,
+            );
+            await this.pathRepository.upsert(
+              {
+                denom: ibc.origin.denom,
+                sourceChain: ibc.origin.chain,
+                destChain: ibc.chain,
+                metadata: {
+                  chain: this.mappingChainId[String(ibc.origin.chain)],
+                  portId: portId,
+                  channelId: counterpartyChannelId,
+                  address: ibc.origin.denom,
+                } as any,
+              },
+              ['denom', 'sourceChain', 'destChain'],
+            );
+          } catch (error) {
+            continue;
+          }
+        }
+      }
+    }
+    await fs.writeFileSync('./icb-paths.json', JSON.stringify(res, null, 2));
+  }
+
+  // @Timeout(0)
   async buildPaths() {
-    await this.getAllDenom(CosmosHubChains.osmosis);
-    const jsonData = JSON.stringify(this.dataCache, null, 2); // Pretty-print JSON with 2-space indentation
-    console.log("🚀 ~ PathService ~ getAllDenom ~ jsonData:", jsonData);
-    fs.writeFileSync('./ibc-path.json', jsonData);
+    console.log('Start');
+    if (!this.mappingChainId) {
+      await this.getChainInfo();
+    }
+    await this.getAllIBCs();
+    console.log('Success');
   }
 
   @Interval(24 * 60 * 60 * 1000)
@@ -131,10 +282,11 @@ export class PathService {
       this.mappingChainId = {};
     }
     for (const chain of chains) {
-      this.mappingChainId[chain.chain_id] = chain.name;
+      this.mappingChainId[chain.name] = chain.chain_id;
     }
+    this.mappingChainId['cosmos'] = 'cosmoshub-4';
     console.log(
-      '🚀 ~ getTokenInfo ~ this.mappingChainId:',
+      '🚀 ~ PathService ~ getChainInfo ~ this.mappingChainId:',
       this.mappingChainId,
     );
   }
