@@ -7,19 +7,56 @@ import { Cache } from 'cache-manager';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PathEntity } from './path.entity';
 import { Repository } from 'typeorm';
-import * as fs from 'fs';
 import { GetRouteDto } from './dtos/get-route.dto';
+import * as _ from 'lodash';
+import { StaticPool } from 'node-worker-threads-pool';
+import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
+import { Worker } from 'worker_threads';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
 
 @Injectable()
 export class PathService {
-  private mappingChainId: { [key: string]: string };
+  public mappingChainId: { [key: string]: string };
+  private staticPool: any;
+  private _pendingSaveEntities: QueryDeepPartialEntity<PathEntity>[];
+  private _pendingSaveAggregator: NodeJS.Timer;
   constructor(
     private readonly httpService: HttpService,
     @Inject(CACHE_MANAGER)
     private readonly cacheManager: Cache,
     @InjectRepository(PathEntity)
     private readonly pathRepository: Repository<PathEntity>,
+    @InjectQueue('ibc:path')
+    private readonly pathQueue: Queue,
   ) {}
+
+  // async savePaths(entity: Partial<PathEntity>) {
+  //   if (this._pendingSaveEntities === null) {
+  //     this._pendingSaveEntities = [];
+  //   }
+  //   this._pendingSaveEntities.push(entity);
+  //   if (!this._pendingSaveAggregator) {
+  //     this._pendingSaveAggregator = setTimeout(async () => {
+  //       const entities = this._pendingSaveEntities;
+  //       this._pendingSaveEntities = null;
+  //       this._pendingSaveAggregator = null;
+  //       return this.pathRepository.upsert(entities, [
+  //         'denom',
+  //         'sourceChain',
+  //         'destChain',
+  //       ]);
+  //     }, 10);
+  //   }
+  //   console.log("🚀 ~ PathService ~ savePaths ~ this._pendingSaveEntities:", this._pendingSaveEntities)
+  // }
+  async savePaths(entity: Partial<PathEntity>) {
+    return this.pathRepository.upsert(entity, [
+      'denom',
+      'sourceChain',
+      'destChain',
+    ]);
+  }
 
   async getRoute(dto: GetRouteDto) {
     const { denom, derivePath } = dto;
@@ -57,7 +94,7 @@ export class PathService {
         denom,
         sourceChain: _sourceChain,
       });
-      console.log("🚀 ~ PathService ~ getRoute ~ paths:", paths)
+      console.log('🚀 ~ PathService ~ getRoute ~ paths:', paths);
       if (paths.length === 0) {
         return;
       }
@@ -204,6 +241,8 @@ export class PathService {
     const { data: ibcTokens } = await this.httpService.axiosRef.get(
       'https://raw.githubusercontent.com/PulsarDefi/IBC-Token-Data-Cosmos/main/ibc_data.min.json',
     );
+    return ibcTokens;
+    /*
     const res = {};
     for (const ibc of Object.values(ibcTokens) as any[]) {
       if (!ibc.chain || !ibc.origin.chain) continue;
@@ -224,7 +263,7 @@ export class PathService {
           },
           ['denom', 'sourceChain', 'destChain'],
         );
-        if (ibc.origin.chain in CosmosHubChains) {
+        if (ibc.chain in CosmosHubChains) {
           const rpcEndpoint = COSMOS_MANIFESTS[ibc.origin.chain].lcdURL;
           try {
             const {
@@ -261,16 +300,77 @@ export class PathService {
       }
     }
     await fs.writeFileSync('./icb-paths.json', JSON.stringify(res, null, 2));
+    */
   }
 
-  // @Timeout(0)
+  @Timeout(0)
   async buildPaths() {
     console.log('Start');
     if (!this.mappingChainId) {
       await this.getChainInfo();
     }
-    await this.getAllIBCs();
-    console.log('Success');
+
+    const ibcTokens = await this.getAllIBCs();
+    await Promise.all(
+      (Object.values(ibcTokens) as any[])
+        .map((ibc) => this.pathQueue.add(ibc.chain, ibc)),
+    );
+    // console.log("🚀 ~ PathService ~ buildPaths ~ ibcTokens:", ibcTokens.length)
+    // const chunkData = _.chunk(Object.values(ibcTokens), 2500);
+    // console.log(
+    //   '🚀 ~ PathService ~ buildPaths ~ chunkData:',
+    //   chunkData.length,
+    //   chunkData[0].length,
+    //   chunkData[chunkData.length - 1].length,
+    // );
+
+    // const workers = [];
+    // for (const records of chunkData) {
+    //   const workerData = {
+    //     ibcTokens: records,
+    //     CosmosHubChains: CosmosHubChains,
+    //     mappingChainId: this.mappingChainId,
+    //     // savePaths: this.savePaths.bind(this),
+    //     COSMOS_MANIFESTS: COSMOS_MANIFESTS,
+    //   };
+
+    //   const worker = new Worker('./dist/modules/path/path.worker.js', {
+    //     workerData,
+    //   });
+
+    //   workers.push(worker);
+
+    //   worker.on('message', (message) => {
+    //     if (message.res) {
+    //       this.pathRepository.upsert(message.res, [
+    //         'denom',
+    //         'sourceChain',
+    //         'destChain',
+    //       ]);
+    //     }
+    //   });
+
+    //   worker.on('error', (error) => {
+    //     console.error('Worker error:', error);
+    //   });
+
+    //   worker.on('exit', (code) => {
+    //     if (code !== 0) {
+    //       console.error(`Worker stopped with exit code ${code}`);
+    //     }
+    //   });
+    // }
+
+    // await Promise.all(
+    //   workers.map(
+    //     (worker) =>
+    //       new Promise((resolve) => {
+    //         worker.on('exit', resolve);
+    //       }),
+    //   ),
+    // );
+
+    // console.log('All workers finished processing.');
   }
 
   @Interval(24 * 60 * 60 * 1000)

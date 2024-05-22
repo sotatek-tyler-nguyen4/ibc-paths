@@ -5,6 +5,7 @@ import { PathModule } from './modules/path/path.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { CacheModule } from '@nestjs/cache-manager';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { BullModule } from '@nestjs/bullmq';
 
 @Module({
   imports: [
@@ -23,6 +24,15 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       migrations: [__dirname + '/migrations/*{.ts,.js}'],
       subscribers: [__dirname + '/**/*.subscriber{.ts,.js}'],
+    }),
+    BullModule.forRoot({
+      connection: {
+        host: 'localhost',
+        port: 6379,
+      },
+      defaultJobOptions: {
+        removeOnComplete: true,
+      },
     }),
   ],
   controllers: [AppController],
